@@ -1,23 +1,28 @@
 {
   "name": "owlsightanalytics",
   "version": "1.0.0",
-  "description": "owlsight analytics",
-  "main": "index.js",
+  "description": "analytics",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samrotella/owlsightanalytics.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/samrotella/owlsightanalytics/issues"
   },
   "homepage": "https://github.com/samrotella/owlsightanalytics#readme",
+  "devDependencies": {
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
   "dependencies": {
-    "express": "^4.18.2",
-    "store2": "^2.14.2"
+    "lodash": "^4.17.21"
   }
 }

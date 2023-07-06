@@ -1,34 +1,11 @@
-const express = require('express')
-const store = require('store2');
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) => {
-    //Setting store key and data
-    let data = getGuid()
-
-    store.set('test', data);
-    console.log(console.log(store.getAll()));
-
-    res.send('Hello!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
-function getGuid() { // Public Domain/MIT
-    var d = new Date().getTime();//Timestamp
-    var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now()*1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16;//random number between 0 and 16
-        if(d > 0){//Use timestamp until depleted
-            r = (d + r)%16 | 0;
-            d = Math.floor(d/16);
-        } else {//Use microseconds since page-load if supported
-            r = (d2 + r)%16 | 0;
-            d2 = Math.floor(d2/16);
-        }
-        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-}
+import _ from 'lodash';
+function component() {
+    const element = document.createElement('div');
+  
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  
+    return element;
+  }
+  
+  // document.body.appendChild(component());
+  alert('hello world');
