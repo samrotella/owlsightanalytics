@@ -18,7 +18,13 @@ function createGuid() {
     });
 }
 
-// Need a way to pass up if this is a unique identifer or not
+// pass up the tracking object and let the API do the work
+    // The API will be responsible for tracking uniqueness
 function analyze(guid){
-    // navigator.userAgent
+    var dataObj = {
+        owlGuid: guid,
+        userAgent: navigator.userAgent
+    }
+    console.log('dataObj: ' + dataObj.userAgent);
+    console.log('owlGuid: ' + dataObj.owlGuid);
 }
