@@ -19,12 +19,10 @@ function createGuid() {
     });
 }
 
-// pass up the tracking object and let the API do the work
-    // The API will be responsible for tracking uniqueness?
 function analyze(guid){
     let isUnique = isUniqueSession(guid);
-
-    axios.post('http://localhost:3000/analyze', {
+    // axios.post('http://localhost:3000/analyze', {
+    axios.post('https://owlsight-api.onrender.com/analyze', {
         owlGuid: guid,
         userAgent: navigator.userAgent,
         unuqueSession: isUnique
@@ -35,9 +33,6 @@ function analyze(guid){
       .catch(function (error) {
         console.log(error);
       });
-    
-    // console.log('dataObj: ' + dataObj.userAgent);
-    // console.log('owlGuid: ' + dataObj.owlGuid);
 }
 
 function isUniqueSession(guid) {
