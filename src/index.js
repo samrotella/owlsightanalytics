@@ -1,4 +1,5 @@
 import _ from 'lodash';
+const axios = require('axios');
 
 let localStorageGuid = window.localStorage.getItem('owlGuid');
 
@@ -19,12 +20,28 @@ function createGuid() {
 }
 
 // pass up the tracking object and let the API do the work
-    // The API will be responsible for tracking uniqueness
+    // The API will be responsible for tracking uniqueness?
 function analyze(guid){
-    var dataObj = {
+    let isUnique = isUniqueSession(guid);
+
+    axios.post('http://localhost:3000/analyze', {
         owlGuid: guid,
-        userAgent: navigator.userAgent
-    }
-    console.log('dataObj: ' + dataObj.userAgent);
-    console.log('owlGuid: ' + dataObj.owlGuid);
+        userAgent: navigator.userAgent,
+        unuqueSession: isUnique
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    
+    // console.log('dataObj: ' + dataObj.userAgent);
+    // console.log('owlGuid: ' + dataObj.owlGuid);
+}
+
+function isUniqueSession(guid) {
+    // do a call to the API to check and see if it's seen the GUID before on that organization
+        // if so, do not increment the unique count
+    return true;
 }
