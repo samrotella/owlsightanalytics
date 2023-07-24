@@ -20,13 +20,9 @@ function createGuid() {
 }
 
 function analyze(guid){
-    // isUniqueSession(guid);
-    let isUnique = isUniqueSession(guid);
-    axios.post('http://localhost:3000/analyze', {
-    // axios.post('https://owlsight-api.onrender.com/analyze', {
+    axios.post('https://owlsight-api.onrender.com/analyze', {
         owlGuid: guid,
         userAgent: navigator.userAgent,
-        uniqueSession: isUnique
       })
       .then(function (response) {
         console.log(response);
@@ -34,17 +30,4 @@ function analyze(guid){
       .catch(function (error) {
         console.log(error);
       });
-}
-
-async function isUniqueSession(guid) {
-    axios.get(`http://localhost:3000/owlGuidExists/${guid}`, {}).then((response) => {
-        if (response.status === 404) {
-            return Promise.resolve(true);
-        }
-        else if (response.status === 200) {
-            return Promise.resolve(false);
-        }
-      }).catch((error) => {
-        return Promise.resolve(error);
-    });
 }
