@@ -26,7 +26,7 @@ function analyze(guid){
     // axios.post('https://owlsight-api.onrender.com/analyze', {
         owlGuid: guid,
         userAgent: navigator.userAgent,
-        unuqueSession: isUnique
+        uniqueSession: isUnique
       })
       .then(function (response) {
         console.log(response);
@@ -39,10 +39,10 @@ function analyze(guid){
 async function isUniqueSession(guid) {
     axios.get(`http://localhost:3000/owlGuidExists/${guid}`, {}).then((response) => {
         if (response.status === 404) {
-            return Promise.resolve(false);
+            return Promise.resolve(true);
         }
         else if (response.status === 200) {
-            return Promise.resolve(response.data);
+            return Promise.resolve(false);
         }
       }).catch((error) => {
         return Promise.resolve(error);
