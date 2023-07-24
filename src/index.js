@@ -20,9 +20,10 @@ function createGuid() {
 }
 
 function analyze(guid){
+    // isUniqueSession(guid);
     let isUnique = isUniqueSession(guid);
-    // axios.post('http://localhost:3000/analyze', {
-    axios.post('https://owlsight-api.onrender.com/analyze', {
+    axios.post('http://localhost:3000/analyze', {
+    // axios.post('https://owlsight-api.onrender.com/analyze', {
         owlGuid: guid,
         userAgent: navigator.userAgent,
         unuqueSession: isUnique
@@ -35,8 +36,15 @@ function analyze(guid){
       });
 }
 
-function isUniqueSession(guid) {
-    // do a call to the API to check and see if it's seen the GUID before on that organization
-        // if so, do not increment the unique count
-    return true;
+async function isUniqueSession(guid) {
+    axios.get(`http://localhost:3000/owlGuidExists/${guid}`, {}).then((response) => {
+        if (response.status === 404) {
+            return Promise.resolve(false);
+        }
+        else if (response.status === 200) {
+            return Promise.resolve(response.data);
+        }
+      }).catch((error) => {
+        return Promise.resolve(error);
+    });
 }
