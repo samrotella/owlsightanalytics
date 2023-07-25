@@ -24,7 +24,11 @@ function analyze(guid){
         owlGuid: guid,
         accountGuid: null,
         userAgent: navigator.userAgent,
-        url: null        
+        fullURL: window.location.href,
+        baseURL: window.location.hostname,
+        pathURL: window.location.pathname,
+        operatingSystem: navigator.platform,
+        language: navigator.language
       })
       .then(function (response) {
         console.log(response);
