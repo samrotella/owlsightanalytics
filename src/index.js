@@ -22,7 +22,9 @@ function createGuid() {
 function analyze(guid){
     axios.post('https://owlsight-api.onrender.com/analyze', {
         owlGuid: guid,
+        accountGuid: null,
         userAgent: navigator.userAgent,
+        url: null        
       })
       .then(function (response) {
         console.log(response);
