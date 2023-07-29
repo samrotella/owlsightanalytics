@@ -28,7 +28,8 @@ function analyze(guid){
         baseURL: window.location.hostname,
         pathURL: window.location.pathname,
         operatingSystem: navigator.platform,
-        language: navigator.language
+        language: navigator.language,
+        timeStamp: new Date().toLocaleDateString()
       })
       .then(function (response) {
         console.log(response);
