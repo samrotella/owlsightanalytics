@@ -29,7 +29,7 @@ function analyze(guid){
         pathURL: window.location.pathname,
         operatingSystem: navigator.platform,
         language: navigator.language,
-        timeStamp: new Date().toLocaleDateString()
+        timeStamp: new Date().toLocaleDateString().replace(/\//g, '-')
       })
       .then(function (response) {
         console.log(response);
