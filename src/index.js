@@ -23,7 +23,7 @@ function analyze(guid){
   var MyDate = new Date();
   var MyDateString;
 
-  MyDate.setDate(MyDate.getDate() + 20);
+  MyDate.setDate(MyDate.getDate());
 
   MyDateString = ('0' + (MyDate.getMonth()+1)).slice(-2) + '-' 
               + ('0' + MyDate.getDate()).slice(-2) + '-'
