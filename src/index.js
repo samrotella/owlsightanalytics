@@ -31,7 +31,6 @@ function analyze(guid){
 
     axios.post('https://owlsight-api.onrender.com/analyze', {
         owlGuid: guid,
-        accountGuid: null,
         userAgent: navigator.userAgent,
         fullURL: window.location.href,
         baseURL: window.location.hostname,
