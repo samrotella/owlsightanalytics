@@ -46,3 +46,7 @@ function analyze(guid){
         console.log(error);
       });
 }
+
+function test(){
+  alert('testtest');
+}
