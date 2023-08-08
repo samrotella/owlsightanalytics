@@ -46,10 +46,8 @@ function analyze(guid){
       });
 }
 
-function test(){
-  alert('testtest');
-}
-
+//works!!
+// can expose the 'conversions' functions this way.
 export function hello() {
   console.log('hello');
 }

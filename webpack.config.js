@@ -9,3 +9,4 @@ module.exports = {
     library: 'EntryPoint'
   },
 };
+// can rename EntryPoint to owlsight
