@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/34357489/calling-webpacked-code-from-outside-html-script-tag
 const path = require('path');
 
 module.exports = {
@@ -5,5 +6,6 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
+    library: 'EntryPoint'
   },
 };

@@ -1,6 +1,5 @@
 import _ from 'lodash';
 const axios = require('axios');
-
 let localStorageGuid = window.localStorage.getItem('owlGuid');
 
 if (localStorageGuid) {
@@ -50,3 +49,8 @@ function analyze(guid){
 function test(){
   alert('testtest');
 }
+module.exports = {
+  run: function () {
+    console.log('run from library');
+  }
+};
