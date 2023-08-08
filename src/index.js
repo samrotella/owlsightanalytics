@@ -49,8 +49,7 @@ function analyze(guid){
 function test(){
   alert('testtest');
 }
-module.exports = {
-  run: function () {
-    console.log('run from library');
-  }
-};
+
+export function hello() {
+  console.log('hello');
+}
