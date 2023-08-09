@@ -20,13 +20,13 @@ function createGuid() {
 
 function analyze(guid){
   var MyDate = new Date();
-  var MyDateString;
+  // var MyDateString;
 
-  MyDate.setDate(MyDate.getDate());
+  // MyDate.setDate(MyDate.getDate());
 
-  MyDateString = ('0' + (MyDate.getMonth()+1)).slice(-2) + '-' 
-              + ('0' + MyDate.getDate()).slice(-2) + '-'
-              + MyDate.getFullYear();
+  // MyDateString = ('0' + (MyDate.getMonth()+1)).slice(-2) + '-' 
+  //             + ('0' + MyDate.getDate()).slice(-2) + '-'
+  //             + MyDate.getFullYear();
 
     axios.post('https://owlsight-api.onrender.com/analyze', {
         owlGuid: guid,
@@ -36,7 +36,7 @@ function analyze(guid){
         pathURL: window.location.pathname,
         operatingSystem: navigator.platform,
         language: navigator.language,
-        timeStamp: MyDateString
+        timeStamp: MyDate
       })
       .then(function (response) {
         console.log(response);
