@@ -51,3 +51,6 @@ function analyze(guid){
 export function hello() {
   console.log('hello');
 }
+export function conversions() {
+  console.log('conversions'); 
+}
