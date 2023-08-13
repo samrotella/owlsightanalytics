@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'EntryPoint'
+    library: 'owlsight'
   },
 };
 // can rename EntryPoint to owlsight

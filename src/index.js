@@ -18,7 +18,7 @@ function createGuid() {
     });
 }
 
-function analyze(guid){
+function analyze(guid, conv){
   var MyDate = new Date();
   // var MyDateString;
 
@@ -36,7 +36,8 @@ function analyze(guid){
         pathURL: window.location.pathname,
         operatingSystem: navigator.platform,
         language: navigator.language,
-        timeStamp: MyDate
+        timeStamp: MyDate,
+        conversion: conv
       })
       .then(function (response) {
         console.log(response);
@@ -46,11 +47,16 @@ function analyze(guid){
       });
 }
 
-//works!!
-// can expose the 'conversions' functions this way.
 export function hello() {
   console.log('hello');
 }
-export function conversions() {
+export function conversions(friendlyName, value) {
+  let guid = window.localStorage.getItem('owlGuid');
+  convObj = {
+    name: friendlyName,
+    val: value
+  }
+
+  analyze(guid, convObj);
   console.log('conversions'); 
 }
