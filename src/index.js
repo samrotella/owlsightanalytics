@@ -18,7 +18,7 @@ function createGuid() {
     });
 }
 
-function analyze(guid){
+function analyze(guid, conv){
   var MyDate = new Date();
   // var MyDateString;
 
@@ -37,7 +37,7 @@ function analyze(guid){
         operatingSystem: navigator.platform,
         language: navigator.language,
         timeStamp: MyDate,
-        // conversion: conv
+        conversion: conv
       })
       .then(function (response) {
         console.log(response);
@@ -51,12 +51,12 @@ export function hello() {
   console.log('hello');
 }
 export function conversions(friendlyName, value) {
-  // let guid = window.localStorage.getItem('owlGuid');
-  // let convObj = {
-  //   name: friendlyName,
-  //   val: value
-  // }
+  let guid = window.localStorage.getItem('owlGuid');
+  let convObj = {
+    name: friendlyName,
+    val: value
+  }
 
-  // analyze(guid, convObj);
+  analyze(guid, convObj);
   console.log('conversions'); 
 }
