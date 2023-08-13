@@ -52,7 +52,7 @@ export function hello() {
 }
 export function conversions(friendlyName, value) {
   let guid = window.localStorage.getItem('owlGuid');
-  convObj = {
+  let convObj = {
     name: friendlyName,
     val: value
   }
