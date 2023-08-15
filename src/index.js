@@ -20,31 +20,26 @@ function createGuid() {
 
 function analyze(guid, conv){
   var MyDate = new Date();
-  // var MyDateString;
+  let src = window.location.href.searchParams.get("utm_source");
 
-  // MyDate.setDate(MyDate.getDate());
-
-  // MyDateString = ('0' + (MyDate.getMonth()+1)).slice(-2) + '-' 
-  //             + ('0' + MyDate.getDate()).slice(-2) + '-'
-  //             + MyDate.getFullYear();
-
-    axios.post('https://owlsight-api.onrender.com/analyze', {
-        owlGuid: guid,
-        userAgent: navigator.userAgent,
-        fullURL: window.location.href,
-        baseURL: window.location.hostname,
-        pathURL: window.location.pathname,
-        operatingSystem: navigator.platform,
-        language: navigator.language,
-        timeStamp: MyDate,
-        conversion: conv
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  axios.post('https://owlsight-api.onrender.com/analyze', {
+      owlGuid: guid,
+      userAgent: navigator.userAgent,
+      fullURL: window.location.href,
+      baseURL: window.location.hostname,
+      pathURL: window.location.pathname,
+      operatingSystem: navigator.platform,
+      language: navigator.language,
+      timeStamp: MyDate,
+      conversion: conv,
+      source: src
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
 
 export function hello() {
