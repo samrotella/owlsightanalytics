@@ -34,7 +34,7 @@ function analyze(guid, conv){
       language: navigator.language,
       timeStamp: MyDate,
       conversion: conv,
-      source: src
+      source: name
     })
     .then(function (response) {
       console.log(response);
