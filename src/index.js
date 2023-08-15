@@ -20,7 +20,9 @@ function createGuid() {
 
 function analyze(guid, conv){
   var MyDate = new Date();
-  let src = window.location.href.searchParams.get("utm_source");
+  // let src = window.location.href.searchParams.get("utm_source");
+  let params = new URL(document.location).searchParams;
+  let name = params.get("utm_source"); // is the string "Twitter".
 
   axios.post('https://owlsight-api.onrender.com/analyze', {
       owlGuid: guid,
