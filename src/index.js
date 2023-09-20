@@ -25,6 +25,7 @@ function analyze(guid, conv){
   let name = params.get("utm_source"); // is the string "Twitter".
   let campaignName = params.get("utm_campaign");
   let mediumName = params.get("utm_medium");
+  let contentName = params.get("utm_content");
 
   axios.post('https://owlsight-api.onrender.com/analyze', {
       owlGuid: guid,
@@ -38,7 +39,8 @@ function analyze(guid, conv){
       conversion: conv,
       source: name,
       campaign: campaignName,
-      medium: mediumName
+      medium: mediumName,
+      content: contentName
     })
     .then(function (response) {
       console.log(response);
