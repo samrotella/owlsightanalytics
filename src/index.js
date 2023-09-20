@@ -26,6 +26,7 @@ function analyze(guid, conv){
   let campaignName = params.get("utm_campaign");
   let mediumName = params.get("utm_medium");
   let contentName = params.get("utm_content");
+  let termName = params.get("utm_term");
 
   axios.post('https://owlsight-api.onrender.com/analyze', {
       owlGuid: guid,
@@ -40,7 +41,8 @@ function analyze(guid, conv){
       source: name,
       campaign: campaignName,
       medium: mediumName,
-      content: contentName
+      content: contentName,
+      term: termName
     })
     .then(function (response) {
       console.log(response);
