@@ -21,8 +21,8 @@ function createGuid() {
 
 function analyze(guid, conv){
   // var MyDate = new Date().toISOString().split('T')[0];
-  // var MyDate = new Date().toISOString().split('T')[0];
-  var MyDate = new Date().toLocaleString().split(',')[0];
+  var MyDate = new Date().toISOString().split('T')[0];
+  //var MyDate = new Date().toLocaleString().split(',')[0];
   // let src = window.location.href.searchParams.get("utm_source");
   let params = new URL(document.location).searchParams;
   let name = params.get("utm_source"); // is the string "Twitter".
